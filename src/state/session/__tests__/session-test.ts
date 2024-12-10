@@ -22,7 +22,7 @@ describe('session', () => {
         "accounts": [],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -109,7 +109,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -436,7 +436,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -497,7 +497,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -589,7 +589,7 @@ describe('session', () => {
         "accounts": [],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -766,7 +766,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -1406,7 +1406,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -1471,7 +1471,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },
@@ -1631,7 +1631,7 @@ describe('session', () => {
         ],
         "currentAgentState": {
           "agent": {
-            "service": "https://public.api.bsky.app/",
+            "service": "http://public.localhost:2584//",
           },
           "did": undefined,
         },

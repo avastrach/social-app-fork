@@ -22,7 +22,7 @@ const root = document.getElementById('app')
 if (!root) throw new Error('No root element')
 
 const agent = new BskyAgent({
-  service: 'https://public.api.bsky.app',
+  service: 'http://public.localhost:2584/',
 })
 
 render(<LandingPage />, root)
