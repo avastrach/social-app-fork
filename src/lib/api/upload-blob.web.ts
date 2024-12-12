@@ -11,6 +11,7 @@ export async function uploadBlob(
   input: string | Blob,
   encoding?: string,
 ): Promise<ComAtprotoRepoUploadBlob.Response> {
+  console.log('input web', input)
   if (typeof input === 'string' && input.startsWith('data:')) {
     const blob = await fetch(input).then(r => r.blob())
     return agent.uploadBlob(blob, {encoding})
@@ -20,6 +21,11 @@ export async function uploadBlob(
     return agent.uploadBlob(input, {
       encoding,
     })
+  }
+  if (typeof input === 'string' && input.startsWith('blob:')) {
+    console.log('goes here')
+    const blob = await fetch(input).then(r => r.blob())
+    return agent.uploadBlob(blob, {encoding})
   }
 
   throw new TypeError(`Invalid uploadBlob input: ${typeof input}`)

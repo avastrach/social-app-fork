@@ -215,7 +215,7 @@ export async function compressImage(img: ComposerImage): Promise<ImageMeta> {
   for (let i = 10; i > 0; i--) {
     // Float precision
     const factor = i / 10
-
+    console.log(w, h)
     const res = await manipulateAsync(
       source.path,
       [{resize: {width: w, height: h}}],

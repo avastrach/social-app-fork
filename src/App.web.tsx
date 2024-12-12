@@ -5,6 +5,7 @@ import './style.css'
 import React, {useEffect, useState} from 'react'
 import {RootSiblingParent} from 'react-native-root-siblings'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
+import {CometChatUIKit} from '@cometchat/chat-uikit-react'
 import {msg} from '@lingui/macro'
 import {useLingui} from '@lingui/react'
 
@@ -73,10 +74,17 @@ function InnerApp() {
 
   // init
   useEffect(() => {
+    console.log()
     async function onLaunch(account?: SessionAccount) {
       try {
         if (account) {
           await resumeSession(account)
+          CometChatUIKit.login('cometchat-uid-2')
+            .then(user => {
+              console.log('Login Successful:', {user})
+              //mount your app
+            })
+            .catch(console.log)
         }
       } catch (e) {
         logger.error(`session: resumeSession failed`, {message: e})

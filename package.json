@@ -56,6 +56,12 @@
   "dependencies": {
     "@atproto/api": "^0.13.18",
     "@braintree/sanitize-url": "^6.0.2",
+    "@cometchat/chat-sdk-javascript": "^4.0.10",
+    "@cometchat/chat-sdk-react-native": "^4.0.12",
+    "@cometchat/chat-uikit-react": "^4.3.24",
+    "@cometchat/uikit-elements": "^4.3.18",
+    "@cometchat/uikit-resources": "^4.3.14",
+    "@cometchat/uikit-shared": "^4.3.21",
     "@discord/bottom-sheet": "bluesky-social/react-native-bottom-sheet",
     "@emoji-mart/react": "^1.1.1",
     "@expo/html-elements": "^0.4.2",

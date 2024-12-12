@@ -94,6 +94,7 @@ function InnerApp() {
 
   // init
   useEffect(() => {
+    console.log('native running')
     async function onLaunch(account?: SessionAccount) {
       try {
         if (account) {

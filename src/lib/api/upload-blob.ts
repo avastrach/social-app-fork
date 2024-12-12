@@ -29,7 +29,12 @@ export async function uploadBlob(
   if (input instanceof Blob) {
     return agent.uploadBlob(input, {encoding})
   }
-
+  if (typeof input === 'string' && input.startsWith('blob:')) {
+    console.log('goes here')
+    const blob = await fetch(input).then(r => r.blob())
+    return agent.uploadBlob(blob, {encoding})
+  }
+  console.log('input', input, input.startsWith('blob:'))
   throw new TypeError(`Invalid uploadBlob input: ${typeof input}`)
 }
 

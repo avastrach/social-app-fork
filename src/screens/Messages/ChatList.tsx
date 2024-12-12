@@ -32,6 +32,12 @@ import {ListFooter} from '#/components/Lists'
 import {Loader} from '#/components/Loader'
 import {Text} from '#/components/Typography'
 import {ChatListItem} from './components/ChatListItem'
+import {
+  CometChatConversations,
+  TitleAlignment,
+  ConversationsStyle,
+  CometChatUsersWithMessages,
+} from '@cometchat/chat-uikit-react'
 
 type Props = NativeStackScreenProps<MessagesTabNavigatorParams, 'Messages'>
 
@@ -42,6 +48,13 @@ function renderItem({item}: {item: ChatBskyConvoDefs.ConvoView}) {
 function keyExtractor(item: ChatBskyConvoDefs.ConvoView) {
   return item.id
 }
+
+const conversationsStyle = new ConversationsStyle({
+  width: '100%',
+  height: '100%',
+  border: '1px solid #ee7752',
+  background: 'linear-gradient(#ee7752, #e73c7e, #23a6d5, #23d5ab)',
+})
 
 export function MessagesScreen({navigation, route}: Props) {
   const {_} = useLingui()
@@ -205,7 +218,19 @@ export function MessagesScreen({navigation, route}: Props) {
     <Layout.Screen testID="messagesScreen">
       <Header newChatControl={newChatControl} />
       <NewChat onNewChat={onNewChat} control={newChatControl} />
-      <List
+      <Layout.Center>
+        <div className="conversations" style={{width: '100%', height: '100%'}}>
+          <div>
+            <CometChatConversations
+              title="Your Custom Title"
+              titleAlignment={TitleAlignment.center}
+              conversationsStyle={conversationsStyle}
+            />
+          </div>
+        </div>
+        <CometChatUsersWithMessages />
+      </Layout.Center>
+      {/* <List
         data={conversations}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
@@ -229,7 +254,7 @@ export function MessagesScreen({navigation, route}: Props) {
         // @ts-ignore our .web version only -sfn
         desktopFixedHeight
         sideBorders={false}
-      />
+      /> */}
     </Layout.Screen>
   )
 }
