@@ -248,7 +248,7 @@ export function createThemes({
 
   const dimPalette: Palette = {
     ...darkPalette,
-black: `#000`,
+    black: `#000`,
     like: color.like,
 
     contrast_25: `hsl(${hues.primary}, 28%, ${dimScale[1]}%)`,
