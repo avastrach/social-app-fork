@@ -64,7 +64,7 @@ export function HomeHeaderLayoutMobile({
             onPressOut={() => {
               playHaptic('Light')
             }}>
-            <Logo width={30} />
+            <Logo width={100} />
           </PressableScale>
         </View>
 
