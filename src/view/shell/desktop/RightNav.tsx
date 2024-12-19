@@ -2,7 +2,6 @@ import {View} from 'react-native'
 import {msg, Trans} from '@lingui/macro'
 import {useLingui} from '@lingui/react'
 
-import {FEEDBACK_FORM_URL, HELP_DESK_URL} from '#/lib/constants'
 import {useWebMediaQueries} from '#/lib/hooks/useWebMediaQueries'
 import {useKawaiiMode} from '#/state/preferences/kawaii'
 import {useSession} from '#/state/session'
@@ -16,7 +15,7 @@ import {Text} from '#/components/Typography'
 export function DesktopRightNav({routeName}: {routeName: string}) {
   const t = useTheme()
   const {_} = useLingui()
-  const {hasSession, currentAccount} = useSession()
+  const {hasSession} = useSession()
   const kawaii = useKawaiiMode()
   const gutters = useGutters(['base', 0, 'base', 'wide'])
 
@@ -59,19 +58,6 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
       )}
 
       <Text style={[a.leading_snug, t.atoms.text_contrast_low]}>
-        {hasSession && (
-          <>
-            <InlineLinkText
-              to={FEEDBACK_FORM_URL({
-                email: currentAccount?.email,
-                handle: currentAccount?.handle,
-              })}
-              label={_(msg`Feedback`)}>
-              {_(msg`Feedback`)}
-            </InlineLinkText>
-            {' • '}
-          </>
-        )}
         <InlineLinkText
           to="https://bsky.social/about/support/privacy-policy"
           label={_(msg`Privacy`)}>
@@ -82,10 +68,6 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
           to="https://bsky.social/about/support/tos"
           label={_(msg`Terms`)}>
           {_(msg`Terms`)}
-        </InlineLinkText>
-        {' • '}
-        <InlineLinkText label={_(msg`Help`)} to={HELP_DESK_URL}>
-          {_(msg`Help`)}
         </InlineLinkText>
       </Text>
 

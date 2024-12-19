@@ -1,11 +1,10 @@
 import React, {ComponentProps} from 'react'
-import {Linking, ScrollView, TouchableOpacity, View} from 'react-native'
+import {ScrollView, TouchableOpacity, View} from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {msg, Plural, Trans} from '@lingui/macro'
 import {useLingui} from '@lingui/react'
 import {StackActions, useNavigation} from '@react-navigation/native'
 
-import {FEEDBACK_FORM_URL, HELP_DESK_URL} from '#/lib/constants'
 import {PressableScale} from '#/lib/custom-animations/PressableScale'
 import {useNavigationTabState} from '#/lib/hooks/useNavigationTabState'
 import {getTabState, TabState} from '#/lib/routes/helpers'
@@ -23,7 +22,7 @@ import {formatCount} from '#/view/com/util/numeric/format'
 import {UserAvatar} from '#/view/com/util/UserAvatar'
 import {NavSignupCard} from '#/view/shell/NavSignupCard'
 import {atoms as a, useTheme, web} from '#/alf'
-import {Button, ButtonIcon, ButtonText} from '#/components/Button'
+import {Button} from '#/components/Button'
 import {Divider} from '#/components/Divider'
 import {
   Bell_Filled_Corner0_Rounded as BellFilled,
@@ -203,19 +202,6 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
     setDrawerOpen(false)
   }, [navigation, setDrawerOpen])
 
-  const onPressFeedback = React.useCallback(() => {
-    Linking.openURL(
-      FEEDBACK_FORM_URL({
-        email: currentAccount?.email,
-        handle: currentAccount?.handle,
-      }),
-    )
-  }, [currentAccount])
-
-  const onPressHelp = React.useCallback(() => {
-    Linking.openURL(HELP_DESK_URL)
-  }, [])
-
   // rendering
   // =
 
@@ -278,64 +264,11 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
           <ExtraLinks />
         </View>
       </ScrollView>
-
-      <DrawerFooter
-        onPressFeedback={onPressFeedback}
-        onPressHelp={onPressHelp}
-      />
     </View>
   )
 }
 DrawerContent = React.memo(DrawerContent)
 export {DrawerContent}
-
-let DrawerFooter = ({
-  onPressFeedback,
-  onPressHelp,
-}: {
-  onPressFeedback: () => void
-  onPressHelp: () => void
-}): React.ReactNode => {
-  const {_} = useLingui()
-  const insets = useSafeAreaInsets()
-  return (
-    <View
-      style={[
-        a.flex_row,
-        a.gap_sm,
-        a.flex_wrap,
-        a.pl_xl,
-        a.pt_md,
-        {paddingBottom: Math.max(insets.bottom, a.pb_xl.paddingBottom)},
-      ]}>
-      <Button
-        label={_(msg`Send feedback`)}
-        size="small"
-        variant="solid"
-        color="secondary"
-        onPress={onPressFeedback}>
-        <ButtonIcon icon={Message} position="left" />
-        <ButtonText>
-          <Trans>Feedback</Trans>
-        </ButtonText>
-      </Button>
-      <Button
-        label={_(msg`Get help`)}
-        size="small"
-        variant="outline"
-        color="secondary"
-        onPress={onPressHelp}
-        style={{
-          backgroundColor: 'transparent',
-        }}>
-        <ButtonText>
-          <Trans>Help</Trans>
-        </ButtonText>
-      </Button>
-    </View>
-  )
-}
-DrawerFooter = React.memo(DrawerFooter)
 
 interface MenuItemProps extends ComponentProps<typeof PressableScale> {
   icon: JSX.Element
