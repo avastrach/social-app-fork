@@ -4,7 +4,6 @@ import {msg, Trans} from '@lingui/macro'
 import {useLingui} from '@lingui/react'
 
 import {ErrorBoundary} from '#/view/com/util/ErrorBoundary'
-import {Logo} from '#/view/icons/Logo'
 import {Logotype} from '#/view/icons/Logotype'
 import {atoms as a, useTheme} from '#/alf'
 import {AppLanguageDropdown} from '#/components/AppLanguageDropdown'
@@ -28,8 +27,6 @@ export const SplashScreen = ({
     <CenteredView style={[a.h_full, a.flex_1]}>
       <ErrorBoundary>
         <View style={[{flex: 1}, a.justify_center, a.align_center]}>
-          <Logo width={92} fill="sky" />
-
           <View style={[a.pb_sm, a.pt_5xl]}>
             <Logotype width={161} fill={t.atoms.text.color} />
           </View>
