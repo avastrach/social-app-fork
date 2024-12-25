@@ -73,13 +73,13 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
           </>
         )}
         <InlineLinkText
-          to="https://bsky.social/about/support/privacy-policy"
+          to="https://www.inspired.ch/privacy"
           label={_(msg`Privacy`)}>
           {_(msg`Privacy`)}
         </InlineLinkText>
         {' • '}
         <InlineLinkText
-          to="https://bsky.social/about/support/tos"
+          to="https://www.inspired.ch/termsandconditions"
           label={_(msg`Terms`)}>
           {_(msg`Terms`)}
         </InlineLinkText>
